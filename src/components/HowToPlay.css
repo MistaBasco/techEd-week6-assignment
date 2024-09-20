@@ -1,0 +1,20 @@
+.HowToPlay {
+  color: rgb(1, 221, 1);
+  text-shadow: 1px 2px 1px black;
+  background-color: rgb(23, 24, 22);
+  box-shadow: 2px 4px 10px rgb(26, 34, 28);
+  padding: 0.1svh 1svh 1svh 1svh;
+  margin: 0.5%;
+  border-radius: 8px;
+  height: 50%;
+}
+
+.HowToPlay h2 {
+  font-size: 2em;
+}
+.HowToPlay ol {
+  padding-left: 8svw;
+  font-size: 1.2em;
+  text-align: left;
+  line-height: 1.2em;
+}

@@ -1,0 +1,74 @@
+.Upgrade {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(145, 145, 145);
+  box-shadow: 2px 4px 10px rgb(26, 34, 28);
+  border-radius: 8px;
+  gap: 0.3svh;
+  min-width: max-content;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+/* .Upgrade:hover {
+  background-color: yellow;
+} */
+
+.Upgrade:hover .row-wrapper:first-child .UpgradeValue,
+.Upgrade:hover .row-wrapper:first-child .UpgradeLabel {
+  border: 2px solid rgb(255, 178, 25);
+}
+
+.Upgrade:hover .row-wrapper {
+  background-color: rgb(19, 23, 15);
+}
+
+.Upgrade:hover .UpgradeLabel,
+.Upgrade:hover .UpgradeValue {
+  text-shadow: 3px 3px 6px rgb(91, 87, 70);
+}
+
+/* .Upgrade:hover .Upgrade:focus,
+.Upgrade:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */
+
+.row-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 1svw;
+  background-color: rgb(23, 24, 22);
+  justify-content: space-between;
+  line-height: 0;
+  min-width: fit-content;
+}
+.row-wrapper:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.row-wrapper:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.UpgradeLabel,
+.UpgradeValue {
+  color: rgb(1, 221, 1);
+  border: 1px solid black;
+  text-shadow: 1px 2px 1px black;
+}
+
+.Upgrade .row-wrapper:first-child .UpgradeValue,
+.Upgrade .row-wrapper:first-child .UpgradeLabel {
+  font-size: 1.2em;
+  border: 2px solid rgb(116, 81, 12);
+}
+
+.UpgradeLabel {
+  padding-left: 1svw;
+  font-size: 1.2em;
+}
+
+.UpgradeValue {
+  padding-right: 1svw;
+  font-size: 1em;
+}

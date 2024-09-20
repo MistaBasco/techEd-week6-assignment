@@ -1,0 +1,27 @@
+.CookieBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42svh;
+  width: 100%;
+}
+.AlienCookie {
+  width: 20svw;
+  height: 20svw;
+  background-image: url("src/assets/Alien-cookie.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  animation: fullRotation 8s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes fullRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
