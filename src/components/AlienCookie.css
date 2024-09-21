@@ -15,6 +15,9 @@
   animation: fullRotation 8s linear infinite;
   cursor: pointer;
 }
+.AlienCookie p {
+  color: white;
+}
 
 @keyframes fullRotation {
   0% {

@@ -2,7 +2,7 @@ import Upgrade from "./Upgrade";
 import "./UpgradeList.css";
 import { useEffect, useState, useRef } from "react";
 
-export default function UpgradeList() {
+export default function UpgradeList({ handleUpgrade }) {
   const [upgrades, setUpgrades] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -29,7 +29,7 @@ export default function UpgradeList() {
   function checkScroll() {
     const { scrollTop, scrollHeight, clientHeight } = listRef.current;
     setCanScrollUp(scrollTop > 0);
-    setCanScrollDown(Math.ceil(scrollTop + clientHeight) < scrollHeight); //needed to round up because scrollTop + clientHeight was .xxx off scrollHeight
+    setCanScrollDown(Math.ceil(scrollTop + clientHeight) < scrollHeight); //needed to round up because scrollTop + clientHeight was .xxx off scrollHeight.
   }
 
   // Scroll up
@@ -47,35 +47,28 @@ export default function UpgradeList() {
       behavior: "smooth",
     });
   }
-
+  //Use Effect which adds/removes scroll up and down buttons respectively based on scroll position in the UpgradeList
+  //Scroll down button disappears when fully scrolled down
+  //Scroll up button disappears when fully srolled down
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      // console.log("listRef.current: ", listRef.current);
       if (listRef.current) {
         checkScroll(); // Initial check on mount
         listRef.current.addEventListener("scroll", checkScroll);
       }
-    }, 500); //added delay to ensure listref.current is not null.
-    const referee = listRef.current;
+    }, 500); //added delay to ensure listref.current is not null ('ensure' if-statement passes).
+    const referee = listRef.current; // vs code was complaining about using listRef.current in the return statement and advised that it assign it to a variable before using...
     return () => {
       clearTimeout(timeoutId);
       if (referee) {
         referee.removeEventListener("scroll", checkScroll); // Cleanup
       }
     };
-  }, [listRef.current]);
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
   }
-
-  // console.log(upgrades);
-  // const upgradeList = upgrades.map((upgrade) => (
-  //   <Upgrade key={upgrade.id} upgrade={upgrade} />
-  // ));
-  // console.log(upgradeList);
-
-  // return <div className="UpgradeList">{upgradeList}</div>;
 
   return (
     <div className="UpgradeListContainer">
@@ -87,7 +80,11 @@ export default function UpgradeList() {
 
       <div className="UpgradeList" ref={listRef}>
         {upgrades.map((upgrade) => (
-          <Upgrade key={upgrade.id} upgrade={upgrade} />
+          <Upgrade
+            key={upgrade.id}
+            upgrade={upgrade}
+            onClick={() => handleUpgrade(upgrade.cost, upgrade.increase)}
+          />
         ))}
       </div>
 

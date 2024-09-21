@@ -7,12 +7,9 @@
   gap: 0.3svh;
   min-width: max-content;
   cursor: pointer;
+
   transition: background-color 0.25s;
 }
-
-/* .Upgrade:hover {
-  background-color: yellow;
-} */
 
 .Upgrade:hover .row-wrapper:first-child .UpgradeValue,
 .Upgrade:hover .row-wrapper:first-child .UpgradeLabel {
@@ -27,11 +24,6 @@
 .Upgrade:hover .UpgradeValue {
   text-shadow: 3px 3px 6px rgb(91, 87, 70);
 }
-
-/* .Upgrade:hover .Upgrade:focus,
-.Upgrade:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
 
 .row-wrapper {
   display: flex;
