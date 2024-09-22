@@ -2,9 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   height: 42svh;
   width: 100%;
 }
+/* Achieve legendary status by implementing box-shadow styling on the cookie */
 .AlienCookie {
   width: 20svw;
   height: 20svw;
@@ -13,10 +15,18 @@
   background-repeat: no-repeat;
   background-color: transparent;
   animation: fullRotation 8s linear infinite;
-  cursor: pointer;
+  cursor: crosshair;
+  z-index: 2;
 }
-.AlienCookie p {
-  color: white;
+/* Legendary status achieved */
+.cookieShadow {
+  position: fixed;
+  z-index: 1;
+  width: 17.5svw;
+  height: 17.5svw;
+  border-radius: 150px;
+  background-color: rgb(23, 24, 22);
+  box-shadow: 2px 3px 20px rgb(127, 153, 72);
 }
 
 @keyframes fullRotation {

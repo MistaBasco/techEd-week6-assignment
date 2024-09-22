@@ -3,23 +3,49 @@ import "./App.css";
 import LeftBody from "./components/LeftBody";
 import UpgradeList from "./components/UpgradeList";
 import NotifyUser from "./components/NotifyUser";
+import ResetStats from "./components/ResetStats";
 
 export default function App() {
+  const defaultValues = {
+    initialCookieCount: 100,
+    initialCookiesPS: 0,
+    initialUpgradesPurchased: 0,
+    initialCookiesSpent: 0,
+    initialTotalCookieCount: 0,
+  };
+
   const [currentCookieCount, setCurrentCookieCount] = useState(() => {
-    return parseInt(localStorage.getItem("currentCookieCount")) || 100;
+    return (
+      parseInt(localStorage.getItem("currentCookieCount")) ||
+      defaultValues.initialCookieCount
+    );
   });
   const [totalCookieCount, setTotalCookieCount] = useState(() => {
-    return parseInt(localStorage.getItem("totalCookieCount")) || 0;
+    return (
+      parseInt(localStorage.getItem("totalCookieCount")) ||
+      defaultValues.initialTotalCookieCount
+    );
   });
   const [cookiesPS, setCookiesPS] = useState(() => {
-    return parseInt(localStorage.getItem("cookiesPS")) || 0;
+    return (
+      parseInt(localStorage.getItem("cookiesPS")) ||
+      defaultValues.initialCookiesPS
+    );
   });
   const [upgradesPurchased, setUpgradesPurchased] = useState(() => {
-    return parseInt(localStorage.getItem("upgradesPurchased")) || 0;
+    return (
+      parseInt(localStorage.getItem("upgradesPurchased")) ||
+      defaultValues.initialUpgradesPurchased
+    );
   });
   const [cookiesSpentOnUpgrades, setCookiesSpentOnUpgrades] = useState(() => {
-    return parseInt(localStorage.getItem("cookiesSpentOnUpgrades")) || 0;
+    return (
+      parseInt(localStorage.getItem("cookiesSpentOnUpgrades")) ||
+      defaultValues.initialCookiesSpent
+    );
   });
+  const [notifyMessage, setNotifyMessage] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
 
   // Update localStorage whenever each state changes
   useEffect(() => {
@@ -60,8 +86,27 @@ export default function App() {
       setCookiesSpentOnUpgrades((prevTotal) => prevTotal + upgradeCost);
     } else {
       console.log("Not enough cookies!");
-      NotifyUser("Not enought cookies!", 3000);
+      setNotifyMessage("Not enough Cookies!");
+      setShowNotification(true);
+      // setTimeout(() => {
+      //   setShowNotification(false);
+      // }, 3000);
+
+      // I don't understand why, but removing the commented out code breaks my notification??
     }
+  }
+
+  // Function to reset all stats
+  function resetStats() {
+    setCurrentCookieCount(defaultValues.initialCookieCount);
+    setCookiesPS(defaultValues.initialCookiesPS);
+    setUpgradesPurchased(defaultValues.initialUpgradesPurchased);
+    setCookiesSpentOnUpgrades(defaultValues.initialCookiesSpent);
+    setTotalCookieCount(defaultValues.initialTotalCookieCount);
+
+    // Show reset notification
+    setNotifyMessage("Stats have been reset!");
+    setShowNotification(true);
   }
 
   return (
@@ -76,6 +121,10 @@ export default function App() {
         cookiesPS={cookiesPS}
       />
       <UpgradeList handleUpgrade={handleUpgrade} />
+      {showNotification && (
+        <NotifyUser message={notifyMessage} duration={2000} />
+      )}
+      <ResetStats resetStats={resetStats} />
     </>
   );
 }

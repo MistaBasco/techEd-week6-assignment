@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   background-color: rgb(145, 145, 145);
-  box-shadow: 2px 4px 10px rgb(26, 34, 28);
-  border-radius: 8px;
   gap: 0.3svh;
   min-width: max-content;
   cursor: pointer;
@@ -33,6 +31,7 @@
   justify-content: space-between;
   line-height: 0;
   min-width: fit-content;
+  cursor: pointer;
 }
 .row-wrapper:first-child {
   border-radius: 8px 8px 0 0;

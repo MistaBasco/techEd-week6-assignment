@@ -19,6 +19,7 @@ export default function AlienCookie({
           HandleCookieClick();
         }}
       ></div>
+      <div className="cookieShadow"></div>
     </div>
   );
 }

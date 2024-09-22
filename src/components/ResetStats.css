@@ -1,0 +1,17 @@
+.ResetStats {
+  position: absolute;
+  height: 10svh;
+  width: 15svh;
+  top: 18%;
+  right: 25%;
+  font-family: "bitwise";
+  color: rgb(155, 221, 1);
+  text-shadow: 1px 2px 1px rgb(96, 136, 1);
+  font-size: 2em;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  cursor: grab;
+}
+.ResetStats:hover {
+  opacity: 1;
+}

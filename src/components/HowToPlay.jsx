@@ -3,7 +3,7 @@ import "./HowToPlay.css";
 export default function HowToPlay() {
   return (
     <>
-      <div className="HowToPlay">
+      <div className="HowToPlay box">
         <h2>How To Play</h2>
         <ol>
           <li>
