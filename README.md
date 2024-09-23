@@ -12,8 +12,6 @@ This project is a cookie-clicker-style web application where users can earn cook
 - **API Integration**: The app fetches upgrade data from an Express.js API that serves upgrade details.
 - **Real-time Notifications**: The app notifies users when they cannot afford an upgrade or when they successfully purchase one.
 
-## Project Structure
-
 ## User Stories
 
 ### 🐿️ Developer User Stories:
