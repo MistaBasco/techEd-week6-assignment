@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./Stats.css";
 
 export default function Stats({

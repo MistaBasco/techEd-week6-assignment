@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Upgrade from "./Upgrade";
 import "./UpgradeList.css";
 import { useEffect, useState, useRef } from "react";

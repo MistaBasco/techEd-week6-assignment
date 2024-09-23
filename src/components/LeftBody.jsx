@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import Header from "./Header";
 import "./LeftBody.css";
 import LeftContent from "./LeftContent";

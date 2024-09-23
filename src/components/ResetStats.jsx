@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./ResetStats.css";
 
 export default function ResetStats({ resetStats }) {

@@ -1,6 +1,6 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+
 import "./AlienCookie.css";
-import UseTimer from "./UseTimer";
 
 export default function AlienCookie({
   setCurrentCookieCount,

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./Upgrade.css";
 
 export default function Upgrade({ upgrade, onClick, currentCookieCount }) {

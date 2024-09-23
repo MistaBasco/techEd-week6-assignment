@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import "./NotifyUser.css";
 import { useState, useEffect } from "react";
 
