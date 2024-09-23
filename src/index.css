@@ -8,7 +8,7 @@
 }
 @font-face {
   font-family: "Bitwise";
-  src: url("./src/assets/Bitwise-m19x.ttf") format("truetype");
+  src: url("/public/assets/Bitwise-m19x.ttf") format("truetype");
 }
 :root {
   font-family: "Bitwise";

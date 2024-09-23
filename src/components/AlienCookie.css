@@ -10,7 +10,7 @@
 .AlienCookie {
   width: 20svw;
   height: 20svw;
-  background-image: url("src/assets/Alien-cookie.webp");
+  background-image: url("/public/assets/Alien-cookie.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;
