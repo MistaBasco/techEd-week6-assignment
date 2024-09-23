@@ -1,6 +1,8 @@
 import Upgrade from "./Upgrade";
 import "./UpgradeList.css";
 import { useEffect, useState, useRef } from "react";
+// const serverURL = "http://localhost:8080";
+const serverURL = "https://quick-api-setup.onrender.com";
 
 export default function UpgradeList({ handleUpgrade, currentCookieCount }) {
   const [upgrades, setUpgrades] = useState([]);
@@ -13,7 +15,7 @@ export default function UpgradeList({ handleUpgrade, currentCookieCount }) {
   useEffect(() => {
     async function GetUpgrades() {
       try {
-        const response = await fetch("src/assets/upgrades.json");
+        const response = await fetch(`${serverURL}/upgrades`);
         const data = await response.json();
         setUpgrades(data);
       } catch (error) {

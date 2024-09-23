@@ -86,11 +86,6 @@ export default function App() {
       setCookiesSpentOnUpgrades((prevTotal) => prevTotal + upgradeCost);
     } else {
       DisplayNotification("Not enough Cookies!");
-      // setTimeout(() => {
-      //   setShowNotification(false);
-      // }, 3000);
-
-      // I don't understand why, but removing the commented out code breaks my notification??
     }
   }
 
