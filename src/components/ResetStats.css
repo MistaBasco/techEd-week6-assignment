@@ -9,9 +9,11 @@
   text-shadow: 1px 2px 1px rgb(96, 136, 1);
   font-size: 2em;
   opacity: 0;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
   cursor: grab;
+  pointer-events: fill;
 }
 .ResetStats:hover {
   opacity: 1;
+  pointer-events: auto;
 }

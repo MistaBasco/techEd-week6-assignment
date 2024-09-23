@@ -46,7 +46,7 @@ export default function App() {
   });
   const [notifyMessage, setNotifyMessage] = useState("");
   const [showNotification, setShowNotification] = useState(false);
-
+  const [notifyTrigger, setNotifyTrigger] = useState(0);
   // Update localStorage whenever each state changes
   useEffect(() => {
     localStorage.setItem("currentCookieCount", currentCookieCount);
@@ -85,9 +85,7 @@ export default function App() {
       setUpgradesPurchased((prevCount) => prevCount + 1);
       setCookiesSpentOnUpgrades((prevTotal) => prevTotal + upgradeCost);
     } else {
-      console.log("Not enough cookies!");
-      setNotifyMessage("Not enough Cookies!");
-      setShowNotification(true);
+      DisplayNotification("Not enough Cookies!");
       // setTimeout(() => {
       //   setShowNotification(false);
       // }, 3000);
@@ -103,10 +101,14 @@ export default function App() {
     setUpgradesPurchased(defaultValues.initialUpgradesPurchased);
     setCookiesSpentOnUpgrades(defaultValues.initialCookiesSpent);
     setTotalCookieCount(defaultValues.initialTotalCookieCount);
-
     // Show reset notification
-    setNotifyMessage("Stats have been reset!");
+    DisplayNotification("Stats have been reset!");
+  }
+
+  function DisplayNotification(message) {
+    setNotifyMessage(message);
     setShowNotification(true);
+    setNotifyTrigger(Date.now());
   }
 
   return (
@@ -120,9 +122,16 @@ export default function App() {
         cookiesSpentOnUpgrades={cookiesSpentOnUpgrades}
         cookiesPS={cookiesPS}
       />
-      <UpgradeList handleUpgrade={handleUpgrade} />
+      <UpgradeList
+        handleUpgrade={handleUpgrade}
+        currentCookieCount={currentCookieCount}
+      />
       {showNotification && (
-        <NotifyUser message={notifyMessage} duration={2000} />
+        <NotifyUser
+          message={notifyMessage}
+          duration={2000}
+          triggerKey={notifyTrigger}
+        />
       )}
       <ResetStats resetStats={resetStats} />
     </>

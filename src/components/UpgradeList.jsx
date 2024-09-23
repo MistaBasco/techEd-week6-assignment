@@ -2,7 +2,7 @@ import Upgrade from "./Upgrade";
 import "./UpgradeList.css";
 import { useEffect, useState, useRef } from "react";
 
-export default function UpgradeList({ handleUpgrade }) {
+export default function UpgradeList({ handleUpgrade, currentCookieCount }) {
   const [upgrades, setUpgrades] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -83,6 +83,7 @@ export default function UpgradeList({ handleUpgrade }) {
           <Upgrade
             key={upgrade.id}
             upgrade={upgrade}
+            currentCookieCount={currentCookieCount}
             onClick={() => handleUpgrade(upgrade.cost, upgrade.increase)}
           />
         ))}

@@ -5,8 +5,13 @@
   gap: 0.3svh;
   min-width: max-content;
   cursor: pointer;
-
   transition: background-color 0.25s;
+  opacity: 1;
+  transition: 0.3s ease;
+}
+
+.Upgrade.disabled {
+  opacity: 0.5;
 }
 
 .Upgrade:hover .row-wrapper:first-child .UpgradeValue,
